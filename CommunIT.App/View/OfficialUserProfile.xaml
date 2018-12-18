@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="CommunIT.App.View.OfficialUserProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CommunIT.App.View"
+    xmlns:converters="using:CommunIT.App.Converts" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:DateFormatConverter x:Key="DateFormatConverter" />
+    </Page.Resources>
+    <Grid>
+        <Button Command="{Binding Navigation.GoBackCommand}" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Width="50" Height="50" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" />
+
+        <TextBox Header="Display name" Name="DisplayNameBox" HorizontalAlignment="Left" Margin="332,170,0,0" Text="{Binding DisplayName}" VerticalAlignment="Top" Height="70" Width="508" PlaceholderText="Display name" InputScope="Text" IsReadOnly="True"/>
+        <TextBox Header="University" Name="UniversityBox" HorizontalAlignment="Left" Margin="332,262,0,0" Text="{Binding UniversityName}" VerticalAlignment="Top" Width="508" Height="70" PlaceholderText="University" InputScope="Text" IsReadOnly="True"/>
+        <TextBox Header="Description" Name ="BioBox" HorizontalAlignment="Left" Margin="332,350,0,0" Text ="{Binding Bio}" VerticalAlignment="Top" Width="508" Height="262" InputScope="Text" IsReadOnly="True"/>
+        <TextBox Header="Date Joined" Name="CreatedBox" HorizontalAlignment="Left" Margin="27,170,0,0" Text="{Binding Created, Converter={StaticResource DateFormatConverter}}" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
+    </Grid>
+</Page>

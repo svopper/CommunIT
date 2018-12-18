@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="CommunIT.App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CommunIT.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView x:Name="Nav"
+                Loaded="Nav_Loaded"
+                SelectionChanged="Nav_SelectionChanged"
+                ItemInvoked="Nav_ItemInvoked"
+                IsTabStop="False"
+                IsBackEnabled="True"
+                BackRequested="Nav_BackRequested"
+                IsSettingsVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Header="CommunIT">
+            <NavigationView.MenuItems >
+                <NavigationViewItem Icon="Home" Tag="HomePage" >
+                    <TextBlock Tag="Nav_Home">Home</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Contact" Tag="ProfilePage">
+                    <TextBlock Tag="Nav_Profile">Profile</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Add" Tag="CreatePage">
+                    <TextBlock Tag="Nav_Create">Create Community</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SearchPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE721;"/>
+                    </NavigationViewItem.Icon>
+                    <TextBlock Tag="Nav_Search">Search</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="People" Tag="JoinedPage">
+                    <TextBlock Tag="Nav_Joined">Joined Communities</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Admin" Tag="AdminPage">
+                    <TextBlock Tag="Nav_Admin">Administrating</TextBlock>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="20,0,0,0"/>
+            </ScrollViewer>
+        </NavigationView>
+
+    </Grid>
+</Page>

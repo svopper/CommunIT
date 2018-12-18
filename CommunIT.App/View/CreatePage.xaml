@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="CommunIT.App.View.CreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CommunIT.App.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock FontSize="50">Create a community</TextBlock>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Padding="100">
+            <TextBox Name="Name" Header="Community name" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="392" FontSize="20" Margin="30,0"/>
+
+            <Grid HorizontalAlignment="Center" Width="800">
+                <Grid Width="392" Height="344" HorizontalAlignment="Left" Padding="20">
+                    <ListView Name="BaseTagList" Header="Base tags - select max 3!" ItemsSource="{Binding BaseTags}" IsMultiSelectCheckBoxEnabled="True" SelectionMode="Multiple" SelectionChanged="BaseTagList_SelectionChanged" 
+                          VerticalAlignment="Top" Width="auto" Height="304">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Border Name="BaseTagRestriction"  Background="Red" Opacity=".6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed">
+                        <TextBlock FontSize="25" TextAlignment="Center"  >Max three base tags</TextBlock>
+                    </Border>
+                </Grid>
+
+                <Grid Width="392" Height="344" HorizontalAlignment="Right" Padding="20">
+                    <ListView Name="SubTagList" Header="Sub tags - select 6 max!" HorizontalAlignment="Stretch" ItemsSource="{Binding SubTags}" IsMultiSelectCheckBoxEnabled="True" SelectionMode="Multiple" SelectionChanged="SubTagList_SelectionChanged"
+                      VerticalAlignment="Top" Width="auto" Height="304">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Border Name="SubTagRestriction" Background="Red" Opacity=".6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed">
+                        <TextBlock FontSize="25" TextAlignment="Center"  >Max three sub tags</TextBlock>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Height="280" Padding="20">
+                <TextBox Name="Description" Header="Describe the community" PlaceholderText="You can write about: Rules, purpose etc." VerticalAlignment="Top" Height="180" Width="784" TextWrapping="Wrap"/>
+
+                <Button Name="SaveButton" Content="Save" Click="SaveButton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
