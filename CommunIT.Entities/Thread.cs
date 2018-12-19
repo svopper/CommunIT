@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CommunIT.Entities
@@ -16,6 +17,7 @@ namespace CommunIT.Entities
         public int ForumId { get; set; }
 
         public virtual User User { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual Forum Forum { get; set; }
     }
 }
